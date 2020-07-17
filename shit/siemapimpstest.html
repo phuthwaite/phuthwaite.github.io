@@ -1,0 +1,96 @@
+<html>
+<head>
+<style>
+body {
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+}
+
+.siema {
+  margin: 1rem 0;
+}
+
+.slide {
+  position: relative;
+  opacity: 1;
+  transition: opacity 3s ease-in-out, transform 3s ease-in-out;
+}
+
+.slide.is-not-active {
+    opacity: 0;
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+  }
+
+</style>
+
+</head>
+<body>
+
+<!-- start siema -->
+<div class="siema">
+  <div class="slide"><img src="https://pawelgrzybek.com/siema/assets/siema--pink.svg" alt="Siema image" /></div>
+  <div class="slide is-not-active"><img src="https://pawelgrzybek.com/siema/assets/siema--yellow.svg" alt="Siema image" /></div>
+  <div class="slide is-not-active"><img src="https://pawelgrzybek.com/siema/assets/siema--pink.svg" alt="Siema image" /></div>
+  <div class="slide is-not-active"><img src="https://pawelgrzybek.com/siema/assets/siema--yellow.svg" alt="Siema image" /></div>
+</div>
+<!-- end siema -->
+
+
+<script src="js/jquery-2.1.1.js"></script>
+<!--  plugins -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/siema.js"></script>
+<script>
+const allSlides = document.querySelectorAll('.slide');
+const transitionEvent = whichTransitionEvent();
+let that;
+
+const mySiema = new Siema({
+  duration: 1,
+  loop: true,
+  draggable: false,
+  onInit: function () {
+    that = this;
+    setTimeout(changeSlide, 800);
+  },
+  onChange: function () {
+    allSlides[that.currentSlide].classList.remove('is-not-active');
+    //change speed of slide change 
+    setTimeout(changeSlide, 800);
+  }
+});
+
+function changeSlide() {
+  allSlides[that.currentSlide].classList.add('is-not-active');
+  transitionEvent && allSlides[that.currentSlide].addEventListener(transitionEvent, nextPage);
+}
+
+function nextPage() {
+  allSlides[that.currentSlide].removeEventListener(transitionEvent, nextPage);
+  that.next();
+};
+
+function whichTransitionEvent() {
+  var t;
+  var el = document.createElement('fakeelement');
+  var transitions = {
+    'transition': 'transitionend',
+    'OTransition': 'oTransitionEnd',
+    'MozTransition': 'transitionend',
+    'WebkitTransition': 'webkitTransitionEnd'
+  }
+
+  for (t in transitions) {
+    if (el.style[t] !== undefined) {
+      return transitions[t];
+    }
+  }
+}
+</script>
+</body>
+</html>

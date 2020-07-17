@@ -1,0 +1,47 @@
+when "client", for each "slide"
+
+<xsl:template match="table-row">
+     
+     <xsl:choose>
+
+        <xsl:when test="@client = 'pokerstars'">
+        	<xsl:for-each select="slide">
+        		<xsl:text>set variables accordingly</xsl:text>
+        	</xsl:for-each>
+        </xsl:when>
+
+        <xsl:when test="@client = 'axs'">
+        	<xsl:for-each select="slide">
+        		<xsl:text>set variables accordingly</xsl:text>
+        	</xsl:for-each>
+        </xsl:when>
+
+        <xsl:when test="@client = 'twc'">
+        	<xsl:for-each select="slide">
+        		<xsl:text>set variables accordingly</xsl:text>
+        	</xsl:for-each>
+        </xsl:when>
+
+      </xsl:choose>
+
+    <xsl:apply-templates select="*"/>
+
+</xsl:template>
+
+<client>
+	<slide>
+	  	<left>
+		    <client-logo>
+		    <title>
+		    <role>
+		    <skills>
+		    <tools>
+		</left>
+	    <right>
+		    <image 1>
+		    <image 2>
+		</right>
+	</slide>
+</client>
+
+<xsl:apply-templates select="Address[@Type='Billing']" />
