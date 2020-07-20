@@ -71,7 +71,7 @@
 								startY: 0,
 								letItGo: null,
 								preventClick: !1
-							}, this.selector.addEventListener("touchstart", this.touchstartHandler), this.selector.addEventListener("touchend", this.touchendHandler), this.selector.addEventListener("touchmove", this.touchmoveHandler), this.selector.addEventListener("mousedown", this.mousedownHandler), this.selector.addEventListener("mouseup", this.mouseupHandler), this.selector.addEventListener("mouseleave", this.mouseleaveHandler), this.selector.addEventListener("mousemove", this.mousemoveHandler), this.selector.addEventListener("click", this.clickHandler))
+							}, this.selector.addEventListener("touchstart", this.touchstartHandler, { passive: true }), this.selector.addEventListener("touchend", this.touchendHandler, { passive: true }), this.selector.addEventListener("touchmove", this.touchmoveHandler, { passive: true }), this.selector.addEventListener("mousedown", this.mousedownHandler), this.selector.addEventListener("mouseup", this.mouseupHandler), this.selector.addEventListener("mouseleave", this.mouseleaveHandler), this.selector.addEventListener("mousemove", this.mousemoveHandler), this.selector.addEventListener("click", this.clickHandler))
 						}
 					}, {
 						key: "detachEvents",

@@ -13,6 +13,7 @@ jQuery(document).ready(function($){
 		//clip effect 
 		revealDuration = 600,
 		revealAnimationDelay = 1500;
+		stopAnimation = false;
 	
 	initHeadline();
 	
@@ -24,14 +25,6 @@ jQuery(document).ready(function($){
 		animateHeadline($('.box-headline'));
 	}
 
-	function pauseHeadline() {
-		$('.box-words-wrapper *').on('webkitAnimationEnd', function() {
-			this.animate.webkitAnimationPlayState='paused';
-		// $('.box-headline.rotate-2 i').on('webkitAnimationEnd', function() {
-  //     	this.webkitAnimationPlayState="paused!important";
-
-	});
-	}
 
 	function singleLetters($words) {
 		$words.each(function(){
@@ -77,6 +70,9 @@ jQuery(document).ready(function($){
 
 	function hideWord($word) {
 		var nextWord = takeNext($word);
+		if(stopAnimation){
+      		return false;
+    	}
 		
 		if($word.parents('.box-headline').hasClass('type')) {
 			var parentSpan = $word.parent('.box-words-wrapper');
@@ -160,4 +156,32 @@ jQuery(document).ready(function($){
 		$oldWord.removeClass('is-visible').addClass('is-hidden');
 		$newWord.removeClass('is-hidden').addClass('is-visible');
 	}
+
+	$(window).scroll(function() {
+      var scroll = $(this).scrollTop();
+      var someHeight = window.innerHeight;
+      if (scroll < someHeight) {
+        stopAnimation = false;
+      }
+        else {
+          stopAnimation = true;
+         initHeadline();
+        }
+        return false;
+      }); //end scroll function
+
+	$(window).load(function () { 
+           
+            var bottom_of_object = $('.box-intro').offset().top + $('.box-intro').outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is completely visible in the window, play it */
+            if( bottom_of_window <= bottom_of_object ){
+                stopAnimation = false;     
+            }
+            else{
+				stopAnimation = true;
+            }
+        }); //end load function
+
 });

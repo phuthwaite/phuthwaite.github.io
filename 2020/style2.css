@@ -393,6 +393,9 @@ transition: all .7s ease-out;
 	opacity: 0;
 	transition: opacity .7s ease-out;
 }
+.folio.solo button.prev, .folio.solo button.next {
+  display: none;
+}
 
 
 @media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
@@ -538,15 +541,15 @@ transition: all .7s ease-out;
 	/*border: 1px solid yellow;*/
 }
 .prev {left: 0;}
-.prev ion-icon {left: -8px;}
+.prev i {left: -8px;}
 .next {right: 0;}
-.next ion-icon {right: -8px;}
+.next i {right: -8px;}
 
-.folio button ion-icon {
+.folio button i {
 	color: #fff;
 	opacity: 0.5;
 }
-.folio button:hover ion-icon {
+.folio button:hover i {
 	opacity: 1;
 }
 button.mfp-close.yayCloseBtn {
@@ -636,23 +639,16 @@ button.mfp-close.yayCloseBtn {
 	/* setting siema div overflow causes prev/next btns to move */
 	height: 500px!important;
 }
-.folio-slide {
-  
-  
-/*  -webkit-transition: opacity 1.5s ease-out, -webkit-transform 1.5s ease-out;
-  transition: opacity 1.5s ease-out, -webkit-transform 1.5s ease-out;
-  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-  transition: opacity 1.5s ease-out, transform 1.5s ease-out, -webkit-transform 1.5s ease-out;
-  opacity: 1;*/
+.folio.solo .prev, .folio.solo .next {
+  display: none;
 }
 .folio-slide {
  position: relative;
-/*  -webkit-animation: hideSlow .3s cubic-bezier(0,1.09,.99,1), -webkit-transform .3s ease-out;
-  animation: hideSlow .3s cubic-bezier(0,1.09,.99,1), -webkit-transform .3s ease-out;
-  animation: hideSlow .3s cubic-bezier(0,1.09,.99,1), transform .3s ease-out;
-  animation: hideSlow .3s cubic-bezier(0,1.09,.99,1), -webkit-transform .3s ease-out;
-  animation: hideSlow .5s ease-in;*/
-animation: hideSlow .5s ease;
+  -webkit-animation: hideSlow .5s ease;
+  -moz-animation:    hideSlow .5s ease;
+  -o-animation:      hideSlow .5s ease;
+  animation:         hideSlow .5s ease;
+
 opacity: 0;
 
 }
@@ -663,11 +659,12 @@ opacity: 0;
   transition: color 1s ease-in-out .5s;
 }
 .show {
-		  animation: showSlow .5s ease;
-/*  animation: showSlow .5s ease;*/
-/* -webkit-transform .3s ease-out -webkit-animation: showSlow .3s cubic-bezier(0,1.09,.99,1), -webkit-transform .3s ease-out;
-  animation: showSlow .3s cubic-bezier(0,1.09,.99,1), -webkit-transform .3s ease-out;
-  animation: showSlow .3s cubic-bezier(0,1.09,.99,1), transform .3s ease-out;*/
+
+  -webkit-animation: showSlow .5s ease;
+  -moz-animation:    showSlow .5s ease;
+  -o-animation:      showSlow .5s ease;
+  animation:         showSlow .5s ease;
+
 opacity: 1;
 
 }
@@ -679,107 +676,43 @@ opacity: 1;
 	animation: showhideshow 1s ease;
 
 }*/
+@-webkit-keyframes showSlow {
+    0%,
+    80% {   opacity: 0;  }
+    100% {  opacity: 1;   }
+}
+@-moz-keyframes showSlow {
+    0%,
+    80% {   opacity: 0;  }
+    100% {  opacity: 1;   }
+}
+@-o-keyframes showSlow {
+    0%,
+    80% {   opacity: 0;  }
+    100% {  opacity: 1;   }
+}
 @keyframes showSlow {
     0%,
-		80% {
-			opacity: 0;
-		        transition: opacity(0);
-		        -webkit-transition: opacity(0);
-		    }
-		    100% {
-		    	opacity: 1;
-	        transition: opacity(1);
-	        -webkit-transition: opacity(1);
-	    }
+  	80% {   opacity: 0;  }
+		100% {  opacity: 1;   }
+}
+@-webkit-keyframes hideSlow {
+    0%    {   opacity: 1;   }
+    20%,
+    100%  {   opacity: 0;   }
+}
+@-moz-keyframes hideSlow {
+    0%    {   opacity: 1;   }
+    20%,
+    100%  {   opacity: 0;   }
+}
+@-o-keyframes hideSlow {
+    0%    {   opacity: 1;   }
+    20%,
+    100%  {   opacity: 0;   }
 }
 @keyframes hideSlow {
-	0% {
-		   opacity: 1;
-		   		        transition: opacity(1);
-		        -webkit-transition: opacity(1);
-		}
-	    30%, 100% {
-	        opacity: 0;
-	        		        transition: opacity(0);
-		        -webkit-transition: opacity(0);
-		    }
-		    
+    0%    {   opacity: 1;   }
+    20%,
+    100%  {   opacity: 0;   }
 }
-@keyframes showhideshow {
-    0%,10% {
-			opacity: 1;
-		        transition: opacity(1);
-		        -webkit-transition: opacity(1);
-		    }
-	40% {
-			opacity: 0;
-		        transition: opacity(0);
-		        -webkit-transition: opacity(0);
-		    }
-	60% {
-	    	opacity: 0;
-        	transition: opacity(0);
-        -webkit-transition: opacity(0);
-    }
-    90%,100% {
-	    	opacity: 1;
-        transition: opacity(1);
-        -webkit-transition: opacity(1);
-    }
-}
-/* ----------------------------------------- */
-
-/*  .className {
- 	-webkit
-	normal
-
-	animation / transform / transition :
-	nameOfThingThatsKeyframedBelow  |  duration  |  loopOption  |  easing / linear / bezier;}
-
-	@-webkit-keyframes nameOfThingThatsKeyframedBelow {}
-	@keyframes nameOfThingThatsKeyframedBelow {}
-*/
-
-
-/*.folio-slide {
-  transition: opacity .2s ease-out;
-  opacity: 0;
-}
-.folio-slide.active {
-    	opacity: 1;
-  	}*/
-
-/*
-.animation {
-    -webkit-animation: nameOfThingThatsKeyframedBelow 2.0s infinite ease-in-out;
-    animation: nameOfThingThatsKeyframedBelow 2.0s infinite ease-in-out;
-}
-
-.animation {
-    -webkit-animation-delay: -1.0s;
-    animation-delay: -1.0s;
-}
-
-@-webkit-keyframes nameOfThingThatsKeyframedBelow {
-    0%,
-    	100% {
-        -webkit-transform: scale(0.0)
-    	}
-		    50% {
-		        -webkit-transform: scale(1.0)
-		    }
-}
-@keyframes nameOfThingThatsKeyframedBelow {
-    0%,
-	    100% {
-	        transform: scale(0.0);
-	        -webkit-transform: scale(0.0);
-	    }
-		    50% {
-		        transform: scale(1.0);
-		        -webkit-transform: scale(1.0);
-		    }
-}
-
-
-*/

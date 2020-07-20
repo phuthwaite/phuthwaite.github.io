@@ -13,11 +13,11 @@ const mySiema = new Siema({
 });
 
 function printSlide() {
-  console.log('current slide index is ' + this.currentSlide);
-  this.innerElements.forEach((slide, i) => {
-  const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
-  this.innerElements[i].classList[addOrRemove]('show');    
-    })
+    // console.log('current slide index is ' + this.currentSlide);
+    this.innerElements.forEach((slide, i) => {
+      const addOrRemove = i === this.currentSlide ? 'add' : 'remove';
+      this.innerElements[i].classList[addOrRemove]('show');    
+      })
   };
 
 function changeSlide() {

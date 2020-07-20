@@ -1,8 +1,3 @@
-@import url("../ionicons/css/ionicons.min.css");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,600");
-@import url("../fonts/framer/stylesheet.css");
-
-
 /* General
 ==================================================*/
 
@@ -268,7 +263,7 @@ body.home .box-logo a {display: none;}
 /*.box-header.lt.is-fixed {background-color: rgba(0, 0, 0, 0.2);
 }*/
 
-.box-header.is-visible {
+/*.box-header.is-visible {
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
 }
@@ -283,7 +278,7 @@ body.home .box-logo a {display: none;}
 .box-header.lt.menu-is-open { background-color: rgba(0, 0, 0, 0.2);
 }
 
-/*
+
 .box-primary-nav-trigger {
     position: absolute;
     right: 0;
@@ -622,8 +617,8 @@ b i:last-child {
 
 /* text rotate */
 
-.box-headline {
-    font-size: 90px;
+.box-headline b i {
+    font-size: 90px!important;
     line-height: 1.0;
 }
 
@@ -789,10 +784,14 @@ b i:last-child {
 .playin b i {animation-play-state: running!important;}*/
 /*.hidin {display: none;}
 .hidin * {animation-play-state: paused!important;}*/
-.box-headline.paused * { 
+/*.box-headline.paused * { 
     animation: none !important;
     transition: none !important; 
 }
+.box-headline.rotate-2 i.in, .box-headline.rotate-2 i.out {
+    animation: none !important;
+    transition: none !important; 
+}*/
 /*transform: unset!important;
 transition: unset!important;
 animation: unset!important;*/}
@@ -921,10 +920,13 @@ iframe {
 .portfolio_item.axs .portfolio_item_hover { background-color: rgba(0, 125, 255, .45);}
 .portfolio_item.twc .portfolio_item_hover { background-color: rgba(255, 255, 255, .85);}
 .portfolio_item.ss .portfolio_item_hover { background-color: rgba(0, 221, 238, .85);}
-.portfolio_item.ps .portfolio_item_hover { background-color: rgba(0, 0, 0, .8);}
+.portfolio_item.ps .portfolio_item_hover { background-color: rgba(0, 0, 0, .7);}
 .portfolio_item.km .portfolio_item_hover { background-color: rgba(255, 255, 255, .85);}
 .portfolio_item.ta .portfolio_item_hover { background-color: rgba(89, 148, 66, .85);}
 .portfolio_item.uni .portfolio_item_hover { background-color: rgba(40, 65, 90, .85);}
+.portfolio_item.mns .portfolio_item_hover { background-color: rgba(255, 255, 255, .85);}
+.portfolio_item.more .portfolio_item_hover { background-color: rgba(255, 255, 255, .85);}
+.portfolio_item.moredark .portfolio_item_hover { background-color: rgba(1, 37, 58, .78);}
 
 .portfolio_item .portfolio_item_hover .item_info {
     text-align: center;
@@ -965,7 +967,7 @@ iframe {
 
 .portfolio_item.axs .item_info span {
     background-image: url(../_assets/img/homelogo_axs.png);
-    height: 60px;/*max- max-width: 164px;*/
+    height: 50px;/*max- max-width: 164px;*/
 }
 .portfolio_item.twc .item_info span {
     background-image: url(../_assets/img/homelogo_twc.png);
@@ -989,9 +991,21 @@ iframe {
 }
 .portfolio_item.uni .item_info span {
     background-image: url(../_assets/img/homelogo_umg.png);
-    height: 85px;
+    height: 70px;
     /*max- max-width: 261px;margin-top: 20%;*/
     
+}
+.portfolio_item.mns .item_info span {
+    background-image: url(../_assets/img/homelogo_mns.png);
+    height: 40px;
+}
+.portfolio_item.more .item_info span {
+    background-image: url(../_assets/img/homelogo_more.png);
+    height: 51px;
+}
+.portfolio_item.moredark .item_info span {
+    background-image: url(../_assets/img/homelogo_more-white.png);
+    height: 51px;
 }
 
 .portfolio_item .portfolio_item_hover .item_info em {
@@ -1004,6 +1018,7 @@ iframe {
     opacity: 0;
     font-size: 0.9em;
     margin-top: 20px;
+    margin-right: 0;
     /*background-color: #e6007e;
     padding: 5px 20px;
     border-radius: 25px;
@@ -1175,7 +1190,7 @@ footer img {
     line-height: 33px;
     margin-right: 10px;
     color: #fff;
-    font-size: 22px;
+    font-size: 24px;
 }
 .contact-details p {
     margin-bottom: 10px !important;
@@ -1185,29 +1200,27 @@ footer img {
 
 /* Folio slides - put into separate sheet style2 */
 
-ion-icon {
-  font-size: 32px;
+i {
+  font-size: 24px;
   position: relative;
 }
-a ion-icon {
+button i, a i {
     opacity: 0.5;
-}
-a:hover ion-icon {
+}button:hover i, a:hover i {
     opacity: 1;
 }
 
 /* Responsive media queries
+need extra break for flex to go 3-up around 800px
+sm: 575-990  md: 991-1199  lg: 1200+
 ==================================================*/
+
 @media (max-width: 991px) {
     .col-md-6 h3 {
         margin-top: 30px;
     }
 }
-@media only screen and (min-width: 768px) {
-    .lity-content{
-        max-height: 530px;
-    }
-}
+
 @media only screen and (max-width: 767px) {
     .box-headline {
         font-size: 80px;
@@ -1225,8 +1238,6 @@ a:hover ion-icon {
     .box-primary-nav .box-social a {
         font-size: 23px;
     }*/
-
-    }
     }
 @media only screen and (max-width: 575px) {
     .box-headline {

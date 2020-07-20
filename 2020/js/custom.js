@@ -20,34 +20,6 @@ jQuery(document).ready(function($) {
 // }
 // animated_contents();
 
-// $(window).scroll(function () {
-//     animated_contents();
-// });
-
-//document.jQuery(class('.box-headline').classList.toggle('paused');
-
-
-// TEMP COMMENTED WHILE WORKING ON SLIDER END TEMP
-
-
-
-   $(window).scroll(function() {
-      var scroll = $(this).scrollTop();
-      var someHeight = window.innerHeight;
-      if (scroll >= someHeight) {
-        document.querySelector('.box-headline').animationPlayState('paused');
-      //   $('.box-headline.rotate-2 i').on('webkitAnimationEnd', function() {
-      //       this.webkitAnimationPlayState="paused!important";
-      //   //stopAnimating();
-      // })}
-      // 
-      //   $('.box-headline.rotate-2 i').webkitAnimationPlayState="running!important";
-      //   //restartAnimating();
-      }
-    //   else {
-    //     initHeadline();
-    // }
-});
 
 
 /* preloader
@@ -69,7 +41,7 @@ $(window).load(function () {
         type: 'ajax',
         mainClass: 'mfp-fade',
         closeBtnInside: false,
-        closeMarkup: '<button class="mfp-close yayCloseBtn" href="#"><ion-icon name="close-outline"></ion-icon></button>'
+        closeMarkup: '<button class="mfp-close yayCloseBtn" href="#"><i class="ion-close-round"></i></button>'
     });
 
 
@@ -96,7 +68,6 @@ $(window).load(function () {
     function hidebullet() {
     var lastElement = false;
     $("ul > li").each(function () {
-
         if (lastElement) {
             if (lastElement.offset().top !== $(this).offset().top) {
                 lastElement.addClass("hidebullet");
@@ -109,7 +80,6 @@ $(window).load(function () {
     }).last().addClass("hidebullet");
     }
     hidebullet();
-    //$(window).resize(nobullet);
     $(window).resize(function () {
         hidebullet();
     });
