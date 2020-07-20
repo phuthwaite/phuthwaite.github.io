@@ -1,0 +1,152 @@
+/* 4 classes: navInLeft, navInRight, navOutLeft, navOutRight */
+
+/*****************************************/
+/* Slide it */
+/*****************************************/
+
+.folio-slide {
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+.folio-slide .navOutNext {
+	-webkit-animation: slideOutLeft 0.3s forwards;
+	animation: slideOutLeft 0.3s forwards;
+}
+.folio-slide .navInNext {
+	-webkit-animation: slideInRight 0.4s 0.2s forwards ease;
+	animation: slideInRight 0.4s 0.2s forwards ease;
+}
+.folio-slide .navOutPrev {
+	-webkit-animation: slideOutRight 0.3s forwards;
+	animation: slideOutRight 0.3s forwards;
+}
+.folio-slide .navInPrev {
+	-webkit-animation: slideInLeft 0.4s 0.2s forwards ease;
+	animation: slideInLeft 0.4s 0.2s forwards ease;
+}
+@-webkit-keyframes slideOutLeft {
+	100% {
+		-webkit-transform: translateX(-10%);
+		opacity: 0;
+	}
+}
+@keyframes slideOutLeft {
+	100% {
+		transform: translateX(-10%);
+		opacity: 0;
+	}
+}
+@-webkit-keyframes slideInRight {
+	0% {
+		-webkit-transform: translateX(10%);
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes slideInRight {
+	0% {
+		transform: translateX(10%);
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+@-webkit-keyframes slideOutRight {
+	100% {
+		-webkit-transform: translateX(10%);
+		opacity: 0;
+	}
+}
+@keyframes slideOutRight {
+	100% {
+		transform: translateX(10%);
+		opacity: 0;
+	}
+}
+@-webkit-keyframes slideInLeft {
+	0% {
+		-webkit-transform: translateX(-10%);
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes slideInLeft {
+	0% {
+		transform: translateX(-10%);
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+/*****************************************/
+/* Slide forward */
+/*****************************************/
+
+.fxSlideForward .navOutNext {
+	-webkit-transform-origin: -50% 50%;
+	transform-origin: -50% 50%;
+	-webkit-animation: scaleDown 0.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+	animation: scaleDown 0.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.fxSlideForward .navInNext {
+	-webkit-transform-origin: 150% 50%;
+	transform-origin: 150% 50%;
+	-webkit-animation: scaleUp 0.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+	animation: scaleUp 0.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.fxSlideForward .navOutPrev {
+	-webkit-transform-origin: 150% 50%;
+	transform-origin: 150% 50%;
+	-webkit-animation: scaleDown 0.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+	animation: scaleDown 0.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.fxSlideForward .navInPrev {
+	-webkit-transform-origin: -50% 50%;
+	transform-origin: -50% 50%;
+	-webkit-animation: scaleUp 0.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+	animation: scaleUp 0.5s forwards cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+@-webkit-keyframes scaleUp {
+	from {
+		-webkit-transform: scale(0);
+	}
+	to {
+		-webkit-transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes scaleUp {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes scaleDown {
+	to {
+		-webkit-transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@keyframes scaleDown {
+	to {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
